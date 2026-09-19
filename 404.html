@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thalina.ru — проект в разработке</title>
+<meta name="description" content="Thalina.ru готовится к открытию. Оставьте почту — сообщим о запуске.">
+<meta name="theme-color" content="#070d0f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='31' fill='%23070d0f'/><circle cx='32' cy='32' r='28' fill='none' stroke='%23d3b487' stroke-width='1.5'/><text x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23e9e2d4' text-anchor='middle'>T</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#070d0f;
+    --foam:#e9e2d4;
+    --paper:#f4f1ea;
+    --brass:#d3b487;
+    --muted:rgba(233,226,212,.62);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Manrope',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  [hidden]{display:none !important}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ---------- Фон: фото + затемнение ---------- */
+  .bg{
+    position:fixed; inset:-28px;           /* запас под параллакс */
+    z-index:0; overflow:hidden;
+    will-change:transform;
+  }
+  .bg img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    filter:saturate(.85) contrast(1.03) brightness(.88);
+    animation:kb 38s ease-in-out infinite alternate, fadeIn 1.8s ease-out both;
+  }
+  @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .scrim{
+    position:absolute;inset:0;
+    background:rgba(7,13,15,.30);
+  }
+  .vignette{
+    position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 46%, rgba(7,13,15,.28) 0%, rgba(7,13,15,.62) 100%);
+  }
+
+  /* ---------- Волны ---------- */
+  .waves{
+    position:fixed;left:0;right:0;bottom:0;height:120px;
+    z-index:2;pointer-events:none;
+  }
+  .waves svg{width:100%;height:100%;display:block}
+  .w{fill:none;stroke:var(--foam);stroke-width:1.3;stroke-linecap:round}
+  .w1{opacity:.30;animation:drift 34s linear infinite}
+  .w2{opacity:.20;stroke:var(--brass);stroke-width:1;animation:drift 25s linear infinite reverse}
+  .w3{opacity:.11;animation:drift 46s linear infinite}
+  @keyframes drift{to{transform:translateX(-600px)}}
+
+  /* ---------- Композиция ---------- */
+  .scene{
+    position:relative;z-index:3;
+    min-height:100vh;min-height:100dvh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:88px 24px 150px;
+  }
+  .content{will-change:transform}
+
+  /* Монограмма */
+  .mark{
+    position:relative;width:52px;height:52px;
+    display:grid;place-items:center;margin-bottom:26px;
+  }
+  .mark::before{content:'';position:absolute;inset:0;border:1px solid rgba(233,226,212,.5);border-radius:50%}
+  .mark::after{
+    content:'';position:absolute;inset:-7px;border-radius:50%;
+    border:1px dashed rgba(211,180,135,.38);
+    animation:spin 46s linear infinite;
+  }
+  .mark span{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:1.5rem;color:var(--foam);line-height:1;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .eyebrow{
+    font-size:.72rem;font-weight:500;
+    letter-spacing:.44em;text-indent:.44em; /* компенсация трекинга для центровки */
+    text-transform:uppercase;color:var(--muted);
+    margin-bottom:22px;
+  }
+  h1{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(2.7rem, 9vw, 6.2rem);
+    line-height:1.04;letter-spacing:.005em;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--brass)}
+
+  .divider{display:flex;align-items:center;gap:14px;justify-content:center;margin:30px 0 26px}
+  .divider i{display:block;width:58px;height:1px;background:rgba(233,226,212,.4)}
+  .divider b{display:block;width:6px;height:6px;background:var(--brass);transform:rotate(45deg)}
+
+  .lead{
+    max-width:46ch;
+    font-size:clamp(1rem, 2.4vw, 1.125rem);
+    font-weight:300;line-height:1.75;
+    color:rgba(244,241,234,.78);
+  }
+
+  /* ---------- Форма ---------- */
+  .notify{display:flex;gap:10px;justify-content:center;margin-top:38px}
+  .notify input{
+    width:min(320px, 100%);
+    font:400 16px/1 'Manrope',sans-serif;
+    color:var(--paper);
+    background:rgba(244,241,234,.06);
+    border:1px solid rgba(233,226,212,.28);
+    border-radius:999px;
+    padding:15px 22px;
+    transition:border-color .3s, background .3s, box-shadow .3s;
+  }
+  .notify input::placeholder{color:rgba(233,226,212,.42)}
+  .notify input:focus{
+    outline:none;border-color:var(--brass);
+    background:rgba(244,241,234,.09);
+    box-shadow:0 0 0 3px rgba(211,180,135,.14);
+  }
+  .notify button{
+    font:500 .95rem/1 'Manrope',sans-serif;letter-spacing:.03em;
+    color:var(--foam);cursor:pointer;
+    background:rgba(233,226,212,.06);
+    border:1px solid rgba(233,226,212,.5);
+    border-radius:999px;padding:15px 28px;
+    transition:background .3s, color .3s, border-color .3s, transform .15s;
+    white-space:nowrap;
+  }
+  .notify button:hover{background:var(--foam);color:#101a1d;border-color:var(--foam)}
+  .notify button:active{transform:translateY(1px)}
+  .notify button:disabled{opacity:.55;cursor:default}
+  input:focus-visible, button:focus-visible, a:focus-visible{
+    outline:1px solid var(--brass);outline-offset:3px;
+  }
+  .notify.error input{border-color:rgba(226,124,96,.85)}
+  .notify.shake{animation:shake .45s ease}
+  @keyframes shake{
+    20%{transform:translateX(-7px)}40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}80%{transform:translateX(3px)}
+  }
+
+  .hint{margin-top:14px;font-size:.78rem;letter-spacing:.04em;color:rgba(233,226,212,.42)}
+  .form-msg{margin-top:14px;font-size:.85rem;color:#e29a80;min-height:1.2em}
+
+  /* Успех */
+  .done{display:flex;align-items:center;gap:13px;margin-top:40px;animation:rise .9s cubic-bezier(.22,1,.36,1) both}
+  .done svg{flex:none;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  .done p{font-size:.95rem;color:rgba(244,241,234,.85);max-width:40ch;line-height:1.6;text-align:left}
+  .done strong{color:var(--brass);font-weight:600}
+  .done a{color:rgba(233,226,212,.5);text-decoration:underline;text-underline-offset:3px;transition:color .3s}
+  .done a:hover{color:var(--foam)}
+
+  /* ---------- Подвал ---------- */
+  .foot{
+    position:absolute;left:0;right:0;bottom:26px;z-index:4;
+    display:flex;justify-content:center;align-items:center;gap:18px;
+    font-size:.8rem;color:rgba(233,226,212,.5);
+  }
+  .foot .sep{width:3px;height:3px;background:rgba(211,180,135,.6);transform:rotate(45deg)}
+  .foot a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(233,226,212,.25);padding-bottom:1px;transition:color .3s,border-color .3s}
+  .foot a:hover{color:var(--foam);border-color:var(--brass)}
+
+  /* ---------- Появление ---------- */
+  .reveal{opacity:0;animation:rise 1.1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s)}
+  @keyframes rise{
+    from{opacity:0;transform:translateY(26px);filter:blur(10px)}
+    to{opacity:1;transform:none;filter:blur(0)}
+  }
+
+  /* ---------- Мобильные ---------- */
+  @media (max-width:600px){
+    .scene{padding:72px 22px 150px}
+    .notify{flex-direction:column;width:min(100%,360px);margin:36px auto 0}
+    .notify button{width:100%}
+    .done{flex-direction:column;text-align:center}
+    .done p{text-align:center}
+    .waves{height:88px}
+    .foot{flex-direction:column;gap:8px;bottom:18px}
+    .foot .sep{display:none}
+  }
+
+  /* Уважение к настройкам движения */
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+    .reveal{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Фон -->
+  <div class="bg" id="bg" aria-hidden="true">
+    <img id="bgImg" src="https://srv6-cdn.dalam.world/monthly_2026_09/Thalina_ru_404.jpg.19ee729096801bcd13a2ccbb59830821.jpg" alt="" decoding="async">
+    <div class="scrim"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Живые линии-волны -->
+  <div class="waves" aria-hidden="true">
+    <svg viewBox="0 0 2400 140" preserveAspectRatio="none">
+      <g class="w w1"><path d="M0 70 Q150 44 300 70 T600 70 T900 70 T1200 70 T1500 70 T1800 70 T2100 70 T2400 70 T2700 70 T3000 70"/></g>
+      <g class="w w2"><path d="M0 70 Q150 92 300 70 T600 70 T900 70 T1200 70 T1500 70 T1800 70 T2100 70 T2400 70 T2700 70 T3000 70"/></g>
+      <g class="w w3"><path d="M0 70 Q150 26 300 70 T600 70 T900 70 T1200 70 T1500 70 T1800 70 T2100 70 T2400 70 T2700 70 T3000 70"/></g>
+    </svg>
+  </div>
+
+  <div class="scene">
+    <main class="content" id="content">
+
+      <div class="mark reveal" style="--d:.05s"><span>T</span></div>
+
+      <p class="eyebrow reveal" style="--d:.2s">Thalina · ru</p>
+
+      <h1 class="reveal" style="--d:.38s">Проект<br><em>в&nbsp;разработке</em></h1>
+
+      <div class="divider reveal" style="--d:.6s" aria-hidden="true"><i></i><b></b><i></i></div>
+
+      <p class="lead reveal" style="--d:.74s">
+        Thalina готовится к открытию. Мы неторопливо и внимательно
+        собираем всё самое важное — скоро здесь появится нечто,
+        достойное вашего визита.
+      </p>
+
+      <form class="notify reveal" style="--d:.9s" id="notifyForm" novalidate>
+        <label class="sr-only" for="email">Электронная почта</label>
+        <input type="email" id="email" name="email" placeholder="ваша@почта.ru" autocomplete="email">
+        <button type="submit" id="submitBtn">Сообщить о запуске</button>
+      </form>
+      <p class="hint reveal" id="hint" style="--d:1s">Одно письмо — в день запуска. Никакого спама.</p>
+      <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+
+      <div class="done" id="done" hidden>
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+          <circle cx="21" cy="21" r="20" stroke="#d3b487" stroke-width="1.2"/>
+          <path d="M13.5 21.5l5 5 10-11" stroke="#d3b487" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p><strong>Готово.</strong> <span id="doneText"></span><br>
+          <a href="#" id="changeLink">указать другой адрес</a>
+        </p>
+      </div>
+
+    </main>
+
+    <footer class="foot reveal" style="--d:1.15s">
+      <span>© 2026 Thalina.ru</span>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="mailto:hello@thalina.ru">hello@thalina.ru</a>
+    </footer>
+  </div>
+
+<script>
+(function(){
+  'use strict';
+  var KEY = 'thalina:notify';
+  var form   = document.getElementById('notifyForm');
+  var input  = document.getElementById('email');
+  var btn    = document.getElementById('submitBtn');
+  var msg    = document.getElementById('formMsg');
+  var hint   = document.getElementById('hint');
+  var done   = document.getElementById('done');
+  var doneTx = document.getElementById('doneText');
+  var change = document.getElementById('changeLink');
+
+  /* --- Подписка: локальная валидация + подтверждение --- */
+  function showDone(email){
+    doneTx.textContent = 'Напишем на ' + email + ', когда Thalina откроется.';
+    form.hidden = true; hint.hidden = true; msg.textContent = '';
+    done.hidden = false;
+  }
+  try{
+    var saved = localStorage.getItem(KEY);
+    if(saved) showDone(saved);
+  }catch(e){}
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = input.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+      msg.textContent = 'Похоже, в адресе опечатка — проверьте его.';
+      form.classList.remove('shake'); void form.offsetWidth;
+      form.classList.add('shake','error');
+      input.focus();
+      return;
+    }
+    form.classList.remove('error','shake');
+    msg.textContent = '';
+    btn.disabled = true;
+    var orig = btn.textContent;
+    btn.textContent = 'Мгновение…';
+    setTimeout(function(){
+      try{ localStorage.setItem(KEY, email); }catch(e){}
+      showDone(email);
+      btn.disabled = false; btn.textContent = orig;
+    }, 650);
+  });
+
+  input.addEventListener('input', function(){
+    form.classList.remove('error');
+    msg.textContent = '';
+  });
+
+  change.addEventListener('click', function(e){
+    e.preventDefault();
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    done.hidden = true;
+    form.hidden = false; hint.hidden = false;
+    input.value = '';
+    input.focus();
+  });
+
+  /* --- Если фото не загрузилось — остаётся чистый тёмный тон --- */
+  document.getElementById('bgImg').addEventListener('error', function(){
+    this.style.display = 'none';
+  });
+
+  /* --- Параллакс: только для мыши, с плавным доводчиком --- */
+  var fine    = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(fine && !reduced){
+    var bg      = document.getElementById('bg');
+    var content = document.getElementById('content');
+    var tx = 0, ty = 0, cx = 0, cy = 0;
+    addEventListener('mousemove', function(e){
+      tx = (e.clientX / innerWidth  - .5) * 2;
+      ty = (e.clientY / innerHeight - .5) * 2;
+    }, {passive:true});
+    (function loop(){
+      cx += (tx - cx) * .055;
+      cy += (ty - cy) * .055;
+      bg.style.transform      = 'translate3d(' + (cx * -18) + 'px,' + (cy * -12) + 'px,0)';
+      content.style.transform = 'translate3d(' + (cx *  7 ) + 'px,' + (cy *  5 ) + 'px,0)';
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+  <script src="https://data.dalam.world/stats.js"></script>
+</body>
+</html>
