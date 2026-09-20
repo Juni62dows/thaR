@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продукция — Thalina</title>
+  <meta name="description" content="Каталог продукции Thalina: шоколадные конфеты, вина, печенье и фруктовые деликатесы собственного производства.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Thalina</span>
+        <span class="logo-tagline">Краснодарский край · с 2026</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="catalog.html" class="active">Продукция</a>
+        <a href="corporate.html">Корпоративным</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="catalog.html" class="active">Продукция</a>
+      <a href="corporate.html">Корпоративным</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-page">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <div class="hero-content fade-up">
+        <h1>Наша продукция</h1>
+        <p class="subtitle">Найти продукцию Thalina можно в сетевых магазинах-партнёрах</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="section">
+    <div class="container">
+      <!-- Tabs -->
+      <div class="tabs fade-up">
+        <button class="tab-btn active" data-filter="all">Все</button>
+        <button class="tab-btn" data-filter="candy">Конфеты</button>
+        <button class="tab-btn" data-filter="wine">Вина</button>
+        <button class="tab-btn" data-filter="cookie">Печенье</button>
+        <button class="tab-btn" data-filter="delicacy">Деликатесы</button>
+      </div>
+
+      <!-- Products -->
+      <div class="catalog-grid">
+        <!-- Candy 1 -->
+        <div class="product-card fade-up" data-category="candy">
+          <div class="product-img choc">🍫</div>
+          <div class="product-body">
+            <h3>Виноград Талины в тёмном шоколаде</h3>
+            <p class="desc">Отборный виноград сорта Каберне, покрытый тёмным бельгийским шоколадом.</p>
+            <div class="weight">Вес: 150 г / 300 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград собственных плантаций, тёмный шоколад (какао 72%), натуральная ваниль
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candy 2 -->
+        <div class="product-card fade-up" data-category="candy">
+          <div class="product-img choc">🍑</div>
+          <div class="product-body">
+            <h3>Персик в молочном шоколаде</h3>
+            <p class="desc">Нежный персик с наших садов, деликатно высушенный и покрытый нежным молочным шоколадом.</p>
+            <div class="weight">Вес: 150 г / 300 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                сушёный персик, молочный шоколад, какао-масло, сахар
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candy 3 -->
+        <div class="product-card fade-up" data-category="candy">
+          <div class="product-img choc">🫐</div>
+          <div class="product-body">
+            <h3>Слива с грецким орехом в шоколаде</h3>
+            <p class="desc">Классическое сочетание — сочная слива и хрустящий орех в оболочке из тёмного шоколада.</p>
+            <div class="weight">Вес: 150 г / 300 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                слива, грецкий орех, тёмный шоколад
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candy 4 -->
+        <div class="product-card fade-up" data-category="candy">
+          <div class="product-img wine">🍒</div>
+          <div class="product-body">
+            <h3>Вишня в вине Thalina</h3>
+            <p class="desc">Вишня, выдержанная в нашем собственном вине, в шоколадной оболочке.</p>
+            <div class="weight">Вес: 150 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                вишня, вино Thalina, тёмный шоколад, какао-масло
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candy 5 -->
+        <div class="product-card fade-up" data-category="candy">
+          <div class="product-img assorti">🎁</div>
+          <div class="product-body">
+            <h3>Ассорти Thalina</h3>
+            <p class="desc">Подарочный набор из лучших конфет Thalina в фирменной коробке.</p>
+            <div class="weight">Вес: 500 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград, персик, слива, вишня, тёмный и молочный шоколад
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wine 1 -->
+        <div class="product-card fade-up" data-category="wine">
+          <div class="product-img wine">🍷</div>
+          <div class="product-body">
+            <h3>Thalina Красное Сухое</h3>
+            <p class="desc">Насыщенное красное вино с нотами спелых ягод и тёмного шоколада. Выдержка 12 месяцев.</p>
+            <div class="weight">Объём: 0,75 л</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград Каберне Совиньон, Мерло (собственные плантации)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wine 2 -->
+        <div class="product-card fade-up" data-category="wine">
+          <div class="product-img wine">🥂</div>
+          <div class="product-body">
+            <h3>Thalina Белое Сухое</h3>
+            <p class="desc">Лёгкое белое вино с цветочным ароматом и свежим вкусом.</p>
+            <div class="weight">Объём: 0,75 л</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград Шардоне (собственные плантации)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wine 3 -->
+        <div class="product-card fade-up" data-category="wine">
+          <div class="product-img wine">🌸</div>
+          <div class="product-body">
+            <h3>Thalina Розовое</h3>
+            <p class="desc">Деликатное розовое вино с ароматом свежих ягод.</p>
+            <div class="weight">Объём: 0,75 л</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград Мерло, Каберне (собственные плантации)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cookie 1 -->
+        <div class="product-card fade-up" data-category="cookie">
+          <div class="product-img cookie">🍪</div>
+          <div class="product-body">
+            <h3>Печенье с виноградом и орехами</h3>
+            <p class="desc">Хрустящее печенье с кусочками сушёного винограда и орехами. Без искусственных добавок.</p>
+            <div class="weight">Вес: 200 г / 400 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                мука, масло, виноград, грецкий орех, мёд, яйца
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cookie 2 -->
+        <div class="product-card fade-up" data-category="cookie">
+          <div class="product-img cookie">🍑</div>
+          <div class="product-body">
+            <h3>Песочное печенье с персиком</h3>
+            <p class="desc">Нежное песочное печенье с кусочками персика.</p>
+            <div class="weight">Вес: 200 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                мука, масло, персик, сахар, яйца, ваниль
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delicacy 1 -->
+        <div class="product-card fade-up" data-category="delicacy">
+          <div class="product-img fruit">🍇</div>
+          <div class="product-body">
+            <h3>Сушёный виноград Thalina</h3>
+            <p class="desc">Отборный виноград, высушенный по традиционной технологии. Без консервантов и добавок.</p>
+            <div class="weight">Вес: 200 г / 500 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                виноград собственных плантаций
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delicacy 2 -->
+        <div class="product-card fade-up" data-category="delicacy">
+          <div class="product-img fruit">🍑</div>
+          <div class="product-body">
+            <h3>Персиковое варенье Thalina</h3>
+            <p class="desc">Домашнее варенье из персиков собственного сада.</p>
+            <div class="weight">Объём: 350 г / 700 г</div>
+            <button class="btn-details"><span class="label">Подробнее</span> <span class="arrow">→</span></button>
+            <div class="product-details">
+              <div class="composition">
+                <strong>Состав:</strong>
+                персик, сахар, лимонный сок
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="cta-box fade-up">
+        <h2>Где купить</h2>
+        <p>Продукция Thalina доступна в сетевых магазинах-партнёрах. Прямых продаж физическим лицам мы не осуществляем.</p>
+        <a href="contacts.html" class="btn btn-primary">Связаться с нами</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-name">Thalina</span>
+            <span class="logo-tagline">Краснодарский край · с 2026</span>
+          </a>
+          <p>Натуральные продукты из Краснодарского края. Собственные плантации, собственное производство.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Навигация</h4>
+          <a href="catalog.html">Продукция</a>
+          <a href="about.html">О нас</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="corporate.html">Корпоративным</a>
+        </div>
+        <div class="footer-links">
+          <h4>Контакты</h4>
+          <a href="mailto:info@thalina.ru">info@thalina.ru</a>
+          <p style="margin-top: 8px; font-size: 0.95rem;">пос. Семигорск,<br>Краснодарский край</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Thalina. Все права защищены.</span>
+        <span>пос. Семигорск, Краснодарский край</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

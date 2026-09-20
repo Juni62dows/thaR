@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корпоративным — Thalina</title>
+  <meta name="description" content="Корпоративное сотрудничество с Thalina. Поставки для торговых сетей, партнёрство с начинающим бизнесом, корпоративные подарки и экспорт.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Thalina</span>
+        <span class="logo-tagline">Краснодарский край · с 2026</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="catalog.html">Продукция</a>
+        <a href="corporate.html" class="active">Корпоративным</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="catalog.html">Продукция</a>
+      <a href="corporate.html" class="active">Корпоративным</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-page">
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <div class="hero-content fade-up">
+        <h1>Корпоративное сотрудничество</h1>
+        <p class="subtitle">Работаем с торговыми сетями и начинающими бизнесами</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Направления сотрудничества</h2>
+      </div>
+      <div class="coop-grid">
+        <div class="coop-card fade-up">
+          <div class="icon">🏪</div>
+          <h3>Торговые сети</h3>
+          <p>Рассматриваем предложения от торговых сетей на поставку нашей продукции. Прямые договоры без посредников. Гарантированное качество и стабильные поставки.</p>
+        </div>
+        <div class="coop-card fade-up">
+          <div class="icon">🌱</div>
+          <h3>Начинающий бизнес</h3>
+          <p>Мы открыты к сотрудничеству с развивающимися компаниями. Рассматриваем различные форматы партнёрства — от совместных проектов до поставок сырья.</p>
+        </div>
+        <div class="coop-card fade-up">
+          <div class="icon">🎁</div>
+          <h3>Корпоративные подарки</h3>
+          <p>Фирменные наборы Thalina для корпоративных клиентов. Брендирование под ваш заказ. Индивидуальная упаковка. Минимальный заказ уточняйте по почте.</p>
+        </div>
+        <div class="coop-card fade-up">
+          <div class="icon">🌍</div>
+          <h3>Экспорт</h3>
+          <p>Рассматриваем предложения по поставкам за рубеж. Вся необходимая документация и сертификация в наличии.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Форма обратной связи</h2>
+        <p class="subtitle">Для начала сотрудничества заполните форму — мы свяжемся с вами</p>
+      </div>
+      <div class="form-section fade-up">
+        <form id="coop-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Имя *</label>
+              <input type="text" id="name" name="name" required placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+              <label for="company">Компания</label>
+              <input type="text" id="company" name="company" placeholder="Название компании">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="email@company.ru">
+            </div>
+            <div class="form-group">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="direction">Направление *</label>
+            <select id="direction" name="direction" required>
+              <option value="" disabled selected>Выберите направление</option>
+              <option value="Торговая сеть">Торговая сеть</option>
+              <option value="Начинающий бизнес">Начинающий бизнес</option>
+              <option value="Корпоративные подарки">Корпоративные подарки</option>
+              <option value="Экспорт">Экспорт</option>
+              <option value="Другое">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" placeholder="Расскажите о вашем предложении..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить запрос</button>
+          <p class="form-note">Форма откроет ваш почтовый клиент с письмом на corporate@thalina.ru</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-name">Thalina</span>
+            <span class="logo-tagline">Краснодарский край · с 2026</span>
+          </a>
+          <p>Натуральные продукты из Краснодарского края. Собственные плантации, собственное производство.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Навигация</h4>
+          <a href="catalog.html">Продукция</a>
+          <a href="about.html">О нас</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="corporate.html">Корпоративным</a>
+        </div>
+        <div class="footer-links">
+          <h4>Контакты</h4>
+          <a href="mailto:info@thalina.ru">info@thalina.ru</a>
+          <p style="margin-top: 8px; font-size: 0.95rem;">пос. Семигорск,<br>Краснодарский край</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Thalina. Все права защищены.</span>
+        <span>пос. Семигорск, Краснодарский край</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
